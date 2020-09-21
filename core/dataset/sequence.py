@@ -86,7 +86,7 @@ class Dataset(Sequence):
 
     def _getitem(self, sub_idx):
         path, bboxes, labels = self.annotation[sub_idx]
-        image = read_image(path)
+        image = read_image('/content/slider_image/'+path)
 
         if len(bboxes) != 0:
             bboxes, labels = np.array(bboxes), np.array(labels)
