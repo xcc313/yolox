@@ -38,7 +38,7 @@ def main(_argv):
         from core.model.one_stage.yolov4 import YOLOv4_Tiny as Model
         from core.model.one_stage.yolov4 import YOLOLoss as Loss
         num = 61
-        epochs = 80
+        epochs = 20
     elif model_type == 'yolox':
         from core.model.one_stage.custom import YOLOX as Model
         from core.model.one_stage.custom import YOLOLoss as Loss
