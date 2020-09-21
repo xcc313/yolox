@@ -52,7 +52,7 @@ def main(_argv):
     else:
         raise NotImplementedError()
 
-    epoch_steps = 4000
+    epoch_steps = 224
 
     model, eval_model = Model(cfg)
     model.summary()
