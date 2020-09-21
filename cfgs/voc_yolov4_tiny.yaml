@@ -14,7 +14,7 @@ train:
   image_size: "320,352,384,416,448,480,512,544,576,608"
 
   batch_size: 4
-  init_weight_path: "./ckpts/yolov4-tiny.h5"
+  init_weight_path: ""
   save_weight_path: "./ckpts"
 
   loss_type: "CIoU+FL"
