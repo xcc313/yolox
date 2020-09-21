@@ -10,7 +10,7 @@ from core.dataset import Dataset
 from core.callbacks import COCOEvalCheckpoint, CosineAnnealingScheduler, WarmUpScheduler
 from core.utils.optimizers import Accumulative
 
-flags.DEFINE_string('config', './cfgs/coco_yolov4_tiny.yaml', 'path to config file')
+flags.DEFINE_string('config', './cfgs/voc_yolov4_tiny.yaml', 'path to config file')
 FLAGS = flags.FLAGS
 
 
