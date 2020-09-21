@@ -28,5 +28,5 @@ train:
 test:
   anno_path: "./data/pascal_voc/test.txt"
   image_size: "416"
-  batch_size: 1
+  batch_size: 6
   init_weight_path: ""
