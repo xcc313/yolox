@@ -96,7 +96,7 @@ def main(_argv):
         os.makedirs(ckpt_path)
         os.makedirs(os.path.join(ckpt_path, 'train', 'plugins', 'profile'))
 
-    opt = Accumulative(optimizers.Adam(lr=0.), 16)
+    opt = Accumulative(optimizer=optimizers.Adam(lr=0.), accum_steps=16)
     # warm-up
     for i in range(num):
         model.layers[i].trainable = False
