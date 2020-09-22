@@ -12,7 +12,7 @@ import cv2
 import numpy as np
 
 flags.DEFINE_string('config', './cfgs/voc_yolov4_tiny.yaml', "path to config file")
-flags.DEFINE_string('media', 'E:/dm/repo/tensorflow-yolov3/docs/images/zz.jpg',
+flags.DEFINE_string('media', 'E:/dm/repo/tensorflow-yolov3/docs/images/sn2.jpg',
                     'path to video file (MP4, AVI) or number for web camera(RTSP, or device ID) or image(JPEG, PNG)')
 flags.DEFINE_bool('gpu', False, 'Use GPU')
 FLAGS = flags.FLAGS

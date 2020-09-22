@@ -9,8 +9,11 @@ from core.utils import decode_cfg, load_weights
 from core.dataset import Dataset
 from core.callbacks import COCOEvalCheckpoint, CosineAnnealingScheduler, WarmUpScheduler
 from core.utils.optimizers import Accumulative
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
-flags.DEFINE_string('config', './cfgs/voc_yolov4_tiny.yaml', 'path to config file')
+
+flags.DEFINE_string('config', './cfgs/signature_yolov4_tiny.yaml', 'path to config file')
 FLAGS = flags.FLAGS
 
 
@@ -52,7 +55,7 @@ def main(_argv):
     else:
         raise NotImplementedError()
 
-    epoch_steps = 224
+    epoch_steps = 100
 
     model, eval_model = Model(cfg)
     model.summary()
