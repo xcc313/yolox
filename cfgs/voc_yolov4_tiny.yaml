@@ -14,7 +14,7 @@ train:
   image_size: "320,352,384,416,448,480,512,544,576,608"
 
   batch_size: 18
-  init_weight_path: "./ckpts/tmp/voc_yolov4_tiny_SM_DM_CIoU_FL/202009210852/mAP-0.4862.h5"
+  init_weight_path: "./ckpts/tmp/voc_yolov4_tiny_SM_DM_CIoU_FL/202009211730/mAP-0.5883.h5"
   save_weight_path: "./ckpts"
 
   loss_type: "CIoU+FL"
@@ -29,4 +29,4 @@ test:
   anno_path: "./data/pascal_voc/test.txt"
   image_size: "416"
   batch_size: 6
-  init_weight_path: ""
+  init_weight_path: "./ckpts/tmp/voc_yolov4_tiny_SM_DM_CIoU_FL/202009211730/mAP-0.5883.h5"

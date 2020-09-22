@@ -65,9 +65,11 @@ def main(_argv):
     ignore_threshold = cfg['train']['ignore_threshold']
     loss_type = cfg['train']['loss_type']
 
-    if init_weight:
+    try:
+        print('=> Restoring weights from: %s ... ' % init_weight)
         load_weights(model, init_weight)
-    else:
+    except:
+        print('=> %s does not exist !!!' % init_weight)
         print("Training from scratch")
         num = 0
 
@@ -113,7 +115,7 @@ def main(_argv):
     model.compile(loss=loss, optimizer=opt, run_eagerly=False)
     model.fit(train_dataset,
               steps_per_epoch=epoch_steps,
-              epochs=epochs // 5 * 2,
+              epochs=epochs // 5,
               callbacks=eval_callback + lr_callback
               )
 
@@ -124,7 +126,7 @@ def main(_argv):
     model.compile(loss=loss, optimizer=opt, run_eagerly=False)
     model.fit(train_dataset,
               steps_per_epoch=epoch_steps,
-              epochs=epochs // 5 * 3,
+              epochs=epochs // 5,
               callbacks=eval_callback + lr_callback
               )
 
