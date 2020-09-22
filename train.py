@@ -115,7 +115,7 @@ def main(_argv):
     model.compile(loss=loss, optimizer=opt, run_eagerly=False)
     model.fit(train_dataset,
               steps_per_epoch=epoch_steps,
-              epochs=epochs // 5,
+              epochs=epochs // 5 * 2,
               callbacks=eval_callback + lr_callback
               )
 
@@ -126,7 +126,7 @@ def main(_argv):
     model.compile(loss=loss, optimizer=opt, run_eagerly=False)
     model.fit(train_dataset,
               steps_per_epoch=epoch_steps,
-              epochs=epochs // 5,
+              epochs=epochs // 5 * 3,
               callbacks=eval_callback + lr_callback
               )
 
