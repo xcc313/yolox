@@ -55,6 +55,7 @@ def main(_argv):
     shader = Shader(cfg['yolo']['num_classes'])
     names = cfg['yolo']['names']
     image_size = cfg['test']['image_size'][0]
+    model.save('E:/dm/repo/yolox/ckpts/tmp/voc_yolov4_tiny_SM_DM_CIoU_FL/yolov4_tiny_best')
 
     def inference(image):
 
