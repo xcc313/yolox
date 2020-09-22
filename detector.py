@@ -4,12 +4,15 @@ from absl import app, flags
 from core.utils import decode_cfg, load_weights
 from core.image import draw_bboxes, preprocess_image, postprocess_image, read_image, read_video, Shader
 
+import tensorflow as tf
+from tensorflow.python.framework.convert_to_constants import convert_variables_to_constants_v2
+
 import time
 import cv2
 import numpy as np
 
 flags.DEFINE_string('config', './cfgs/voc_yolov4_tiny.yaml', "path to config file")
-flags.DEFINE_string('media', 'E:/dm/repo/tensorflow-yolov3/docs/images/jy6.jpg',
+flags.DEFINE_string('media', 'E:/dm/repo/tensorflow-yolov3/docs/images/zz.jpg',
                     'path to video file (MP4, AVI) or number for web camera(RTSP, or device ID) or image(JPEG, PNG)')
 flags.DEFINE_bool('gpu', False, 'Use GPU')
 FLAGS = flags.FLAGS
@@ -55,7 +58,35 @@ def main(_argv):
     shader = Shader(cfg['yolo']['num_classes'])
     names = cfg['yolo']['names']
     image_size = cfg['test']['image_size'][0]
-    model.save('E:/dm/repo/yolox/ckpts/tmp/voc_yolov4_tiny_SM_DM_CIoU_FL/yolov4_tiny_best')
+
+    #model.save('E:/dm/repo/yolox/ckpts/tmp/voc_yolov4_tiny_SM_DM_CIoU_FL/yolov4_tiny_best/yolov4_tiny.h5')
+
+    # full_model = tf.function(lambda Input: model(Input))
+    # full_model = full_model.get_concrete_function(tf.TensorSpec(model.inputs[0].shape, model.inputs[0].dtype))
+    #
+    # # Get frozen ConcreteFunction
+    # frozen_func = convert_variables_to_constants_v2(full_model)
+    # frozen_func.graph.as_graph_def()
+    #
+    # layers = [op.name for op in frozen_func.graph.get_operations()]
+    # print("-" * 50)
+    # print("Frozen model layers: ")
+    # for layer in layers:
+    #     print(layer)
+    #
+    # print("-" * 50)
+    # print("Frozen model inputs: ")
+    # print(frozen_func.inputs)
+    # print("Frozen model outputs: ")
+    # print(frozen_func.outputs)
+    #
+    # # Save frozen graph from frozen ConcreteFunction to hard drive
+    # tf.io.write_graph(graph_or_graph_def=frozen_func.graph,
+    #                   logdir="./frozen_models",
+    #                   name="yolov4_tiny_tf.pb",
+    #                   as_text=False)
+
+
 
     def inference(image):
 

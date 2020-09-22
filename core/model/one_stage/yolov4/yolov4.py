@@ -316,6 +316,19 @@ class Header(tf.keras.layers.Layer):
         self.score_threshold = score_threshold
         super(Header, self).__init__(**kwargs)
 
+    def get_config(self):
+        config = super().get_config().copy()
+        config.update({
+            'num_classes': self.num_classes,
+            'anchors': self.anchors,
+            'mask': self.mask,
+            'strides': self.strides,
+            'max_outputs': self.max_outputs,
+            'iou_threshold': self.iou_threshold,
+            'score_threshold': self.score_threshold,
+        })
+        return config
+
     def build(self, input_shape):
         super(Header, self).build(input_shape)  # Be sure to call this at the end
 
