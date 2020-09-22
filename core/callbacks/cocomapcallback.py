@@ -11,7 +11,7 @@ class COCOEvalCheckpoint(tf.keras.callbacks.Callback):
                  save_path,
                  eval_model,
                  model_cfg,
-                 only_save_weight=True,
+                 only_save_weight=False,
                  verbose=0):
         super(COCOEvalCheckpoint, self).__init__()
         self.save_path = save_path
